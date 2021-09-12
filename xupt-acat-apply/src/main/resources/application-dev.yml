@@ -1,0 +1,52 @@
+server:
+    port: 10000
+spring:
+  application:
+    name: xupt-acat-apply
+
+  #datasource
+  datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      druid:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/xupt-acat-apply?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          username: recruitment
+          password: recruitment
+          initial-size: 10
+          max-active: 100
+          min-idle: 10
+          max-wait: 60000
+          pool-prepared-statements: true
+          max-pool-prepared-statement-per-connection-size: 20
+          time-between-eviction-runs-millis: 60000
+          min-evictable-idle-time-millis: 300000
+  main:
+          allow-bean-definition-overriding: true
+  #kafka
+  kafka:
+      bootstrap-servers: localhost:9092,localhost:9093,localhost:9094 #指定kafka server的地址，集群配多个，中间，逗号隔开
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+dubbo:
+  application:
+    name: xupt-acat-apply
+  base-package: cn.edu.xupt.acat.apply.service  # dubbo服务调用者所在的包
+  registry:
+    address: 127.0.0.1  # zookeeper注册中心的地址
+    port: 2181              # zookeeper注册中心的端口
+    protocol: zookeeper
+    subscribe: true
+  protocol:
+    name: dubbo
+    host: 127.0.0.1
+    port: 20880
+  consumer:
+    timeout: 1000
+    check: false  # 服务启动时检查被调用服务是否可用
+    retries: 1    # 服务调用重试次数
+
+logging:
+  level:
+    org.springframework.data.elasticsearch.client.WIRE: TRACE
+

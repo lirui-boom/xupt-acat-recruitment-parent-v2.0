@@ -1,0 +1,80 @@
+server:
+  port: 11000
+
+spring:
+    application:
+      name: xupt-acat-auth
+
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        druid:
+            driver-class-name: com.mysql.cj.jdbc.Driver
+            url: jdbc:mysql://localhost:3306/xupt-acat-user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+            username: recruitment
+            password: recruitment
+            initial-size: 10
+            max-active: 100
+            min-idle: 10
+            max-wait: 60000
+            pool-prepared-statements: true
+            max-pool-prepared-statement-per-connection-size: 20
+            time-between-eviction-runs-millis: 60000
+            min-evictable-idle-time-millis: 300000
+    main:
+            allow-bean-definition-overriding: true
+
+    ## Redis 配置
+    redis:
+      ## Redis数据库索引（默认为0）
+      database: 0
+      ## Redis服务器地址
+      host: localhost
+      ## Redis服务器连接端口
+      port: 6379
+      ## Redis服务器连接密码（默认为空）
+      password:
+      jedis:
+        pool:
+          ## 连接池最大连接数（使用负值表示没有限制）
+          #spring.redis.pool.max-active=8
+          max-active: 8
+          ## 连接池最大阻塞等待时间（使用负值表示没有限制）
+          #spring.redis.pool.max-wait=-1
+          max-wait: -1
+          ## 连接池中的最大空闲连接
+          #spring.redis.pool.max-idle=8
+          max-idle: 8
+          ## 连接池中的最小空闲连接
+          #spring.redis.pool.min-idle=0
+          min-idle: 0
+      ## 连接超时时间（毫秒）
+      timeout: 1200
+
+    #将themilef的默认缓存禁用，热加载生效
+    thymeleaf:
+      cache: false
+
+#dubbo注册
+dubbo:
+  application:
+    name: xupt-acat-auth
+  base-package: cn.edu.xupt.acat.auth.service  # dubbo服务所在的包
+  registry:
+    address: 127.0.0.1  # zookeeper注册中心的地址
+    port: 2181              # zookeeper注册中心的端口
+    protocol: zookeeper
+    subscribe: true
+  protocol:
+    name: dubbo
+    host: 127.0.0.1
+    port: 20881
+  consumer:
+    timeout: 1000
+    check: false  # 服务启动时检查被调用服务是否可用
+    retries: 1    # 服务调用重试次数
+
+
+rsa:
+  key:
+    pubKeyFile: D:\WorkSpace\xupt-acat-recruitment-parent-v2.0\resources\id_key_rsa.pub
+    priKeyFile: D:\WorkSpace\xupt-acat-recruitment-parent-v2.0\resources\id_key_rsa

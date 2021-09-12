@@ -1,0 +1,34 @@
+server:
+    port: 16000
+spring:
+  application:
+    name: xupt-acat-process
+  #kafka
+  kafka:
+      bootstrap-servers: localhost:9092,localhost:9093,localhost:9094 #指定kafka server的地址，集群配多个，中间，逗号隔开
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      consumer:
+        session:
+          timeout: 20000
+#dubbo
+dubbo:
+  application:
+    name: xupt-acat-process
+  base-package: cn.edu.xupt.acat.flowcontrol.service  # dubbo服务所在的包
+  registry:
+    address: 127.0.0.1  # zookeeper注册中心的地址
+    port: 2181              # zookeeper注册中心的端口
+    protocol: zookeeper
+    subscribe: true
+  protocol:
+    name: dubbo
+    host: 127.0.0.1
+    port: 20886
+  consumer:
+    timeout: 1000
+    check: false  # 服务启动时检查被调用服务是否可用
+    retries: 1    # 服务调用重试次数
+
+

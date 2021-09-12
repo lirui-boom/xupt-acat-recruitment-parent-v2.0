@@ -1,0 +1,33 @@
+server:
+    port: 15000
+spring:
+  application:
+    name: xupt-acat-notices
+  #datasource
+  datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      druid:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/xupt-acat-notices?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          username: recruitment
+          password: recruitment
+          initial-size: 10
+          max-active: 100
+          min-idle: 10
+          max-wait: 60000
+          pool-prepared-statements: true
+          max-pool-prepared-statement-per-connection-size: 20
+          time-between-eviction-runs-millis: 60000
+          min-evictable-idle-time-millis: 300000
+  main:
+          allow-bean-definition-overriding: true
+
+  #kafka
+  kafka:
+      bootstrap-servers: localhost:9092,localhost:9093,localhost:9094 #指定kafka server的地址，集群配多个，中间，逗号隔开
+      consumer:
+        group-id: default_consumer_group #群组ID
+        #enable-auto-commit: true
+        #auto-commit-interval: 1000
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer

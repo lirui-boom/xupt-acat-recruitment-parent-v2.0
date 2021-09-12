@@ -1,0 +1,45 @@
+server:
+    port: 18000
+
+spring:
+  application:
+    name: xupt-acat-report
+
+  #datasource
+  datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      druid:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/xupt-acat-report?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          username: recruitment
+          password: recruitment
+          initial-size: 10
+          max-active: 100
+          min-idle: 10
+          max-wait: 60000
+          pool-prepared-statements: true
+          max-pool-prepared-statement-per-connection-size: 20
+          time-between-eviction-runs-millis: 60000
+          min-evictable-idle-time-millis: 300000
+  main:
+          allow-bean-definition-overriding: true
+
+#dubbo注册
+dubbo:
+  application:
+    name: xupt-acat-report
+  base-package: cn.edu.xupt.acat.report.service  # dubbo服务所在的包
+  registry:
+    address: 127.0.0.1  # zookeeper注册中心的地址
+    port: 2181              # zookeeper注册中心的端口
+    protocol: zookeeper
+    subscribe: true
+  protocol:
+    name: dubbo
+    host: 127.0.0.1
+    port: 20888
+  consumer:
+    timeout: 5000
+    check: false  # 服务启动时检查被调用服务是否可用
+    retries: 1    # 服务调用重试次数
+
