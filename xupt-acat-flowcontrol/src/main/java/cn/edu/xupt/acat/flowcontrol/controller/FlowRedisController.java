@@ -1,6 +1,6 @@
 package cn.edu.xupt.acat.flowcontrol.controller;
 
-import cn.edu.xupt.acat.flowcontrol.library.RedisFlowControl;
+import cn.edu.xupt.acat.flowcontrol.service.library.RedisFlowControl;
 import cn.edu.xupt.acat.lib.response.R;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,8 +1,6 @@
 package cn.edu.xupt.acat.flowcontrol.service.impl;
 
-import cn.edu.xupt.acat.flowcontrol.library.FlowControlConstant;
-import cn.edu.xupt.acat.flowcontrol.library.FlowControlUtil;
-import cn.edu.xupt.acat.flowcontrol.library.RedisFlowControl;
+import cn.edu.xupt.acat.flowcontrol.service.library.RedisFlowControl;
 import cn.edu.xupt.acat.flowcontrol.service.FlowControlService;
 import cn.edu.xupt.acat.recruitment.domain.entity.TbServiceLine;
 import org.springframework.beans.factory.annotation.Value;

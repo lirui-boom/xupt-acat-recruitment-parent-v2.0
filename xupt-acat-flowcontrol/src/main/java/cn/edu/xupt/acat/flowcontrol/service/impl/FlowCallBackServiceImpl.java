@@ -1,7 +1,7 @@
 package cn.edu.xupt.acat.flowcontrol.service.impl;
 
-import cn.edu.xupt.acat.flowcontrol.library.EsSearch;
-import cn.edu.xupt.acat.flowcontrol.library.FlowControlCodeEnum;
+import cn.edu.xupt.acat.flowcontrol.service.library.EsSearch;
+import cn.edu.xupt.acat.flowcontrol.service.library.FlowControlCodeEnum;
 import cn.edu.xupt.acat.flowcontrol.service.FlowCallBackService;
 import cn.edu.xupt.acat.flowcontrol.service.RunNextFlowService;
 import cn.edu.xupt.acat.lib.exception.ExceptionCast;
@@ -11,11 +11,9 @@ import cn.edu.xupt.acat.recruitment.domain.entity.TbServiceLine;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import javax.annotation.Resource;
 import java.util.logging.Logger;
 
 @Service(async = true)

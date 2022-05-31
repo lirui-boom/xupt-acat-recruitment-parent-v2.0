@@ -413,3 +413,5 @@ CREATE TABLE `tb_notice_record` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 ```
+
+## 运行

@@ -19,7 +19,7 @@
         <module>xupt-acat-user</module>
         <module>xupt-acat-process</module>
         <module>xupt-acat-lib</module>
-        <module>xupt-acat-auth</module>
+<!--        <module>xupt-acat-auth</module>-->
     </modules>
 
     <properties>

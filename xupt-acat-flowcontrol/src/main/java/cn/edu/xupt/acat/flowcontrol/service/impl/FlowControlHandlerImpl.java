@@ -1,6 +1,6 @@
 package cn.edu.xupt.acat.flowcontrol.service.impl;
 
-import cn.edu.xupt.acat.flowcontrol.library.FlowControlConstant;
+import cn.edu.xupt.acat.flowcontrol.service.library.FlowControlConstant;
 import cn.edu.xupt.acat.flowcontrol.service.FlowControlHandler;
 import cn.edu.xupt.acat.lib.exception.ExceptionCast;
 import cn.edu.xupt.acat.lib.exception.ExceptionCodeEnum;

@@ -20,8 +20,8 @@ public class AliyunEmailUtil {
 
 
     // 设置需要操作的账号的AK和SK
-    private static final String ACCESS_KEY = "LTAI4GA4Lenknqwybr5uDbva";
-    private static final String SECRET_KEY = "WkxmbmoOCjphtRj9cLyaf8ifc5QzNi";
+    private static final String ACCESS_KEY = "*";
+    private static final String SECRET_KEY = "*";
     //地区
     private static final String REGION = "cn-hangzhou";
     //发信地址
